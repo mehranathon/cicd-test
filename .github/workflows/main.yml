@@ -17,7 +17,7 @@ on:
 env:
   AWS_REGION: us-west-1
   ECR_REPOSITORY: test-deployments
-  ECS_SERVICE: us-west-task-service-rrmhntdg
+  ECS_SERVICE: us-west-task-2
   ECS_CLUSTER: us-west-cluster
   ECS_TASK_DEFINITION: .aws/test-task-revision1.json
   CONTAINER_NAME: us-west-container
