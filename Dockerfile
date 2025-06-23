@@ -4,6 +4,6 @@ COPY --chown=gradle:gradle . /app
 RUN gradle clean build -x test --no-daemon
 
 FROM openjdk:17-jdk-slim
-EXPOSE 8080
+EXPOSE 80
 COPY --from=build /app/build/libs/*.jar /app/spring-boot-application.jar
 ENTRYPOINT ["java", "-jar", "/app/spring-boot-application.jar"]
