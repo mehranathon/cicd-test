@@ -1,3 +1,11 @@
+# Use Amazon Linux 2 as the base image
+FROM amazonlinux:2
+
+# Install curl using yum
+RUN yum update -y && \
+    yum install -y curl && \
+    yum clean all
+
 FROM gradle:8.8-jdk17 AS build
 WORKDIR /app
 COPY --chown=gradle:gradle . /app
