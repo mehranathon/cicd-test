@@ -4,6 +4,7 @@ import java.time.Instant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequestMapping("health")
 public class HealthController {
-  @GetMapping
-  public ResponseEntity health() {
-    String healthResponse = String.format("healthy at: %s", Instant.now().toString());
+  @GetMapping("/{source}")
+  public ResponseEntity health(@PathVariable String source) {
+    String healthResponse = String.format("source check: %s; healthy at: %s",source, Instant.now().toString());
     log.info(healthResponse);
     return ResponseEntity.ok(healthResponse);
   }
