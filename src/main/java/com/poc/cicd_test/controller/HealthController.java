@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
   @GetMapping("/{source}")
   public ResponseEntity health(@PathVariable String source) {
-    String healthResponse = String.format("source check: %s; healthy at: %s",source, Instant.now().toString());
+    String healthResponse =
+        String.format("source check: %s; healthy at: %s", source, Instant.now().toString());
     log.info(healthResponse);
     return ResponseEntity.ok(healthResponse);
   }
